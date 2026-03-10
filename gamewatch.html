@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="style - global.css">
+<script src="./scripts/global.js"></script>
+<title>Game &amp; Watch Emulator</title>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">WebEmu</div>
+  <a href="index.html">Home</a>
+  <a href="" class="active">Game &amp; Watch</a>
+  <a href="gameboy.html">GB / GBA / GBC</a>
+  <a href="gamegear.html">Game Gear</a>
+  <a href="genesis.html">Genesis / Megadrive</a>
+  <a href="nes.html">NES / Famicom</a>
+  <a href="snes.html">Super NES / Super Famicom</a>
+  <div class="nav-right">
+    <button class="dark-toggle" id="darkToggle">D</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="card">
+
+    <div class="left">
+      <div class="brand">
+        <div class="logo">.mgw</div>
+        <div class="brand-title">
+          <span class="title">Game &amp; Watch Emulator</span>
+          <span class="sub">Whising's Nostalgist.js Build - Game &amp; Watch</span>
+        </div>
+      </div>
+
+      <div class="cover-wrap" id="coverWrap">
+        <img class="cover-img" id="coverImg" src="" alt=""/>
+        <div class="cover-title" id="coverTitle"></div>
+      </div>
+
+      <div class="kbd" id="kbdGrid">
+    <div class="key"><span>D-Pad</span><span class="char highlight">↑↓←→</span></div>
+    <div class="key"><span>A</span><span class="char highlight">Z</span></div>
+    <div class="key"><span>B</span><span class="char highlight">X</span></div>
+    <div class="key"><span>Time</span><span class="char highlight">A</span></div>
+    <div class="key"><span>Start</span><span class="char highlight">Enter</span></div>
+    <div class="key"><span>Fast Forward</span><span class="char highlight">Space</span></div>
+    <div class="key"><span>Rewind</span><span class="char highlight">R</span></div>
+      </div>
+    </div>
+
+    <aside>
+      <div>
+        <span class="field">ROM File</span>
+        <div class="file-drop" id="dropZone">
+          <input type="file" id="romFile" accept=".mgw"/>
+          <div class="file-drop-inner">
+            <span>Drop or click to browse</span>
+            <span>.mgw</span>
+          </div>
+          <div class="file-name" id="fileName"></div>
+        </div>
+      </div>
+
+      <div>
+        <span class="field">Or URL</span>
+        <input type="text" id="romUrl" placeholder="https://example.com/game.mgw"/>
+      </div>
+
+      <div class="progress-bar" id="progressBar"><div class="progress-fill"></div></div>
+      <div id="status-msg"></div>
+
+      <button class="btn primary" id="launchBtn">Launch</button>
+    </aside>
+  </div>
+</div>
+
+<div id="game-topbar">
+  <div class="topbar-title">
+    <div class="topbar-dot"></div>
+    <span id="gameTitle">Game &amp; watch</span>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;">
+    <button class="close-btn" id="fsBtn" title="Fullscreen (F11)">&#x26F6;</button>
+    <button class="close-btn" id="closeBtn" title="Close (Esc)">✕</button>
+  </div>
+</div>
+
+<div id="controls-overlay">
+
+  <div class="overlay-actions">
+
+    <div class="vol-group">
+      <span>Vol</span>
+      <input type="range" id="volSlider" min="0" max="100" value="80"/>
+      <span id="volLabel">80%</span>
+    </div>
+
+    <div class="ov-sep"></div>
+
+    <button class="ov-btn" id="saveStateBtn">Save State</button>
+
+    <button class="ov-btn" id="loadStateBtn">
+      Load State
+      <input type="file" id="stateFileInput" accept=".state,.sav,.bin,*"/>
+    </button>
+
+  </div>
+
+  <div class="overlay-keys">
+    <div class="ctrl-item"><kbd class="ctrl-key">↑↓←→</kbd><span>D-Pad</span></div>
+    <div class="ctrl-sep"></div>
+    <div class="ctrsl-item"><kbd class="ctrl-key">Z</kbd><span>A</span></div>
+    <div class="ctrl-item"><kbd class="ctrl-key">X</kbd><span>B</span></div>
+    <div class="ctrl-item"><kbd class="ctrl-key">A</kbd><span>Time</span></div>
+    <div class="ctrl-sep"></div>
+    <div class="ctrl-item"><kbd class="ctrl-key">Enter</kbd><span>Start</span></div>
+    <div class="ctrl-sep"></div>
+    <div class="ctrl-item"><kbd class="ctrl-key">Space</kbd><span>Fast Forward</span></div>
+    <div class="ctrl-item"><kbd class="ctrl-key">R</kbd><span>Rewind</span></div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/nostalgist"></script>
+<script src="./scripts/gamewatch-script.js"></script>
+<script>
+(function () {
+  const OrigAC = window.AudioContext || window.webkitAudioContext;
+  if (!OrigAC) return;
+  const origConnect = AudioNode.prototype.connect;
+
+  window.AudioContext = window.webkitAudioContext = function (...args) {
+    const ctx = new OrigAC(...args);
+    const gain = ctx.createGain();
+    origConnect.call(gain, ctx.destination);
+    window._masterGain = gain;
+    window._audioCtx   = ctx;
+
+    AudioNode.prototype.connect = function (dest, ...rest) {
+      if (dest instanceof AudioDestinationNode) {
+        return origConnect.call(this, window._masterGain, ...rest);
+      }
+      return origConnect.call(this, dest, ...rest);
+    };
+    return ctx;
+  };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebEmu</title>
+  <link rel="stylesheet" href="index-css.css">
+  <script src="./scripts/global.js"></script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">WebEmu</div>
+    <a href="index.html" class="active">Home</a>
+    <a href="gamewatch.html">Game &amp; Watch</a>
+    <a href="gameboy.html">GB / GBA / GBC</a>
+    <a href="gamegear.html">Game Gear</a>
+    <a href="genesis.html">Genesis / Megadrive</a>
+    <a href="nes.html">NES / Famicom</a>
+    <a href="snes.html">Super NES / Super Famicom</a>
+    <div class="nav-right">
+      <button class="dark-toggle" id="darkToggle">D</button>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <div class="hero">
+      <div class="hero-label">overview@webemu</div>
+      <h1>Retro gaming,<br>in your browser.</h1>
+      <p class="hero-desc">WebEmu runs classic console ROMs directly in the browser with no plugins, no installs, and no accounts. Drop a ROM file or paste a URL and play within seconds. Every emulator supports save states, rewind, fast forward, cover art, and volume control.</p>
+      <div class="hero-meta">
+        <div class="hero-stat">
+          <span class="hero-stat-val">6</span>
+          <span class="hero-stat-key">Systems</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">Fully open source</span>
+          <span class="hero-stat-key">Made for flavortown.hackclub.com</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">100%</span>
+          <span class="hero-stat-key">Browser-based, Nostalgist.js</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-title">How it's built</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="tech-strip">
+        <div class="tech-item">
+          <div class="tech-name">Nostalgist.js</div>
+          <div class="tech-desc">Core emulation library. It wraps libretro cores compiled to WebAssembly and handles ROM loading, canvas rendering, input, and audio routing.</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-name">libretro cores</div>
+          <div class="tech-desc">Each system uses a dedicated libretro core through Nostalgist.js and cores like  mGBA, fceumm, snes9x, genesis_plus_gx, gw compiled to WASM via Emscripten.</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-name">Web Audio API</div>
+          <div class="tech-desc">A GainNode is patched onto the AudioContext before launch, intercepting all connect() calls to give real-time volume control.</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-name">libretro-thumbnails</div>
+          <div class="tech-desc">Cover art is fetched via HEAD requests from the libretro-thumbnails CDN on jsDelivr, matched by ROM filename with region-tag stripping.</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-name">Vanilla JS + CSS</div>
+          <div class="tech-desc">No frameworks (because I am still learning them ;-;). Each page is a single self-contained HTML file otherwise it would've got too complicated. All UI state, save states, overlays, and controls are plain JS.</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-name">localStorage</div>
+          <div class="tech-desc">Dark mode preference is persisted via global.js injected in the document head before paint, preventing a flash on load (thank me later).</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">WebEmu</span>
+        <span class="footer-desc">A opensource browser emulator, made for flavortown.</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://nostalgist.js.org/" target="_blank" rel="noopener">Nostalgist.js</a>
+        <a href="https://github.com/libretro" target="_blank" rel="noopener">libretro</a>
+        <a href="https://flavortown.hackclub.com" target="_blank" rel="noopener">Flavortown - Hackclub</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
