@@ -93,78 +93,276 @@ html[data-theme="forest"] {
   color:             #d4f0d4;
 }
 
-html, body {
-  background: var(--bg);
-  color: var(--accent);
-}
-
-/* BASE */
 html,
 body {
   background: var(--bg);
   color: var(--accent);
 }
 
-nav { background: var(--nav-bg); border-bottom-color: var(--border); }
-.nav-brand { color: var(--accent); border-right-color: var(--border); }
-nav a { color: var(--muted); }
-nav a:hover { color: var(--accent); }
-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+nav {
+  background: var(--nav-bg);
+  border-bottom-color: var(--border);
+}
 
-.dark-toggle { background: var(--card); border-color: var(--border); color: var(--muted); }
-.dark-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.nav-brand {
+  color: var(--accent);
+  border-right-color: var(--border);
+}
 
-.card, .tech-strip, .game-card, .console-list, .signin-card, .modal { background: var(--card); border-color: var(--border); }
-.card:hover, .game-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px var(--shadow); }
+nav a {
+  color: var(--muted);
+}
 
-.console-row { border-bottom-color: var(--border); }
-.console-row:hover { background: var(--hover-bg); }
-.console-row:hover .console-arrow { color: var(--accent); }
+nav a:hover {
+  color: var(--accent);
+}
 
-.console-logo, .logo { background: var(--input-bg); border-color: var(--border); color: var(--accent); }
-.console-name, .card-title, .tech-name, .game-name, .brand-title .title, .hero h1, .collection-title, .signin-title, .modal-title, .empty-title, .footer-brand { color: var(--accent); }
-.console-meta, .card-sub, .card-year, .tech-desc, .hero-desc, .header-desc, .signin-desc, .card-desc, .cover-badge, .footer-desc, .empty-desc { color: var(--muted); }
-.section-title, .hero-label, .header-label, .collection-label, .hero-stat-key, .field, .field-label, .card-row-key { color: var(--muted2); }
-.section-line, .hero, .header, .collection-header { border-color: var(--border); }
-.card-row-val { color: var(--accent); }
+nav a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
 
-.tag, .fmt-tag, .game-system-badge { background: var(--tag-bg); color: var(--tag-color); }
+.dark-toggle {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--muted);
+}
 
-.file-drop, .modal-file-drop { background: var(--card); border-color: var(--border); }
-.file-drop:hover, .file-drop.dragover, .modal-file-drop:hover { border-color: var(--accent); }
-.file-drop-inner { color: var(--muted); }
-.file-name { color: var(--accent); }
+.dark-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
 
-input[type="text"], .modal-input, .signin-input { background: var(--input-bg); border-color: var(--border); color: var(--accent); }
-input[type="text"]:focus, .modal-input:focus, .signin-input:focus { border-color: var(--accent); }
-input[type="text"]::placeholder, .modal-input::placeholder, .signin-input::placeholder { color: var(--muted); }
+.card,
+.tech-strip,
+.game-card,
+.console-list,
+.signin-card,
+.modal {
+  background: var(--card);
+  border-color: var(--border);
+}
 
-.modal-select { background: var(--input-bg); border-color: var(--border); color: var(--accent); }
+.card:hover,
+.game-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px var(--shadow);
+}
 
-.btn { background: var(--card); border-color: var(--border); color: var(--accent); }
-.btn.primary, .btn-email, .game-play-btn { background: var(--highlight-bg); color: var(--highlight-color); border-color: transparent; }
-.btn-google { background: var(--card); border-color: var(--border); color: var(--accent); }
-.btn-google:hover { border-color: var(--accent); }
+/* CONSOLE LIST */
+.console-row {
+  border-bottom-color: var(--border);
+}
 
-.char.highlight { background: var(--highlight-bg); color: var(--highlight-color); }
-.key { background: var(--card); border-color: var(--border); color: var(--accent); }
-.progress-bar { background: var(--border); }
-.progress-fill { background: var(--accent); }
-.cover-img { border-color: var(--border); }
-.cover-title { color: var(--accent); }
+.console-row:hover {
+  background: var(--hover-bg);
+}
 
-.user-pill { background: var(--card); border-color: var(--border); color: var(--accent); }
-.modal-header, .modal-footer, .card-header, .card-tags { border-color: var(--border); }
-.modal-close { border-color: var(--border); color: var(--muted); }
-.modal-close:hover { border-color: var(--accent); color: var(--accent); }
+.console-row:hover .console-arrow {
+  color: var(--accent);
+}
 
-footer { border-top-color: var(--border); }
-.footer-links a { color: var(--muted); }
-.footer-links a:hover { color: var(--accent); }
+.console-logo,
+.logo {
+  background: var(--input-bg);
+  border-color: var(--border);
+  color: var(--accent);
+}
 
-.hero-stat-val { color: var(--accent); }
+/* TEXT */
+.console-name,
+.card-title,
+.tech-name,
+.game-name,
+.brand-title .title,
+.hero h1,
+.collection-title,
+.signin-title,
+.modal-title,
+.empty-title,
+.footer-brand {
+  color: var(--accent);
+}
 
-/* THEME MENU */
+.console-meta,
+.card-sub,
+.card-year,
+.tech-desc,
+.hero-desc,
+.header-desc,
+.signin-desc,
+.card-desc,
+.cover-badge,
+.footer-desc,
+.empty-desc {
+  color: var(--muted);
+}
+
+.section-title,
+.hero-label,
+.header-label,
+.collection-label,
+.hero-stat-key,
+.field,
+.field-label,
+.card-row-key {
+  color: var(--muted2);
+}
+
+.hero-stat-val {
+  color: var(--accent);
+}
+
+.card-row-val {
+  color: var(--accent);
+}
+
+.section-line,
+.hero,
+.header,
+.collection-header {
+  border-color: var(--border);
+}
+
+.tag,
+.fmt-tag,
+.game-system-badge {
+  background: var(--tag-bg);
+  color: var(--tag-color);
+}
+
+.file-drop,
+.modal-file-drop {
+  background: var(--card);
+  border-color: var(--border);
+}
+
+.file-drop:hover,
+.file-drop.dragover,
+.modal-file-drop:hover {
+  border-color: var(--accent);
+}
+
+.file-drop-inner {
+  color: var(--muted);
+}
+
+.file-name {
+  color: var(--accent);
+}
+
+input[type="text"],
+.modal-input,
+.signin-input {
+  background: var(--input-bg);
+  border-color: var(--border);
+  color: var(--accent);
+}
+
+input[type="text"]:focus,
+.modal-input:focus,
+.signin-input:focus {
+  border-color: var(--accent);
+}
+
+input[type="text"]::placeholder,
+.modal-input::placeholder,
+.signin-input::placeholder {
+  color: var(--muted);
+}
+
+.modal-select {
+  background: var(--input-bg);
+  border-color: var(--border);
+  color: var(--accent);
+}
+
+.btn {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--accent);
+}
+
+.btn.primary,
+.btn-email,
+.game-play-btn {
+  background: var(--highlight-bg);
+  color: var(--highlight-color);
+  border-color: transparent;
+}
+
+.btn-google {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--accent);
+}
+
+.btn-google:hover {
+  border-color: var(--accent);
+}
+
+.char.highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-color);
+}
+
+.key {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--accent);
+}
+
+.progress-bar {
+  background: var(--border);
+}
+
+.progress-fill {
+  background: var(--accent);
+}
+
+.cover-img {
+  border-color: var(--border);
+}
+
+.cover-title {
+  color: var(--accent);
+}
+
+.user-pill {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--accent);
+}
+
+.modal-header,
+.modal-footer,
+.card-header,
+.card-tags {
+  border-color: var(--border);
+}
+
+.modal-close {
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.modal-close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+footer {
+  border-top-color: var(--border);
+}
+
+.footer-links a {
+  color: var(--muted);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
 #themeMenu {
   position: fixed;
   z-index: 9999;
@@ -178,7 +376,10 @@ footer { border-top-color: var(--border); }
   box-shadow: 0 8px 24px var(--shadow);
   min-width: 110px;
 }
-#themeMenu.open { display: flex; }
+
+#themeMenu.open {
+  display: flex;
+}
 
 .theme-opt {
   padding: 8px 12px;
@@ -192,5 +393,13 @@ footer { border-top-color: var(--border); }
   text-align: left;
   transition: background 0.12s, color 0.12s;
 }
-.theme-opt:hover { background: var(--hover-bg); color: var(--accent); }
-.theme-opt.active { color: var(--accent); background: var(--tag-bg); }
+
+.theme-opt:hover {
+  background: var(--hover-bg);
+  color: var(--accent);
+}
+
+.theme-opt.active {
+  color: var(--accent);
+  background: var(--tag-bg);
+}

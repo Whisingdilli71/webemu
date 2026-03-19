@@ -389,7 +389,6 @@ footer {
   color: var(--accent);
 }
 
-/* GAME TOPBAR */
 #game-topbar {
   position: fixed;
   top: 0;
@@ -457,7 +456,6 @@ footer {
   border-color: rgba(229,57,53,0.6);
 }
 
-/* CONTROLS OVERLAY */
 #controls-overlay {
   position: fixed;
   bottom: 0;
@@ -598,7 +596,6 @@ input[type="range"]#volSlider::-moz-range-thumb {
   background: rgba(255,255,255,0.15);
 }
 
-/* WRAP + CARD + LAUNCHER */
 .wrap {
   min-height: calc(100vh - 49px);
   display: flex;

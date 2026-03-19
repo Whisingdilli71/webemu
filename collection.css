@@ -97,7 +97,6 @@ nav a.active {
   padding: 0 24px 80px;
 }
 
-/* SIGN IN */
 .signin-wrap {
   min-height: calc(100vh - 49px);
   display: flex;
@@ -251,7 +250,6 @@ nav a.active {
   flex-shrink: 0;
 }
 
-/* COLLECTION */
 .collection-screen {
   display: none;
 }
@@ -342,7 +340,6 @@ nav a.active {
   border: none;
 }
 
-/* DEVICE BANNER */
 .device-banner {
   display: none;
   background: #fff8e1;
@@ -365,7 +362,6 @@ nav a.active {
   margin-bottom: 2px;
 }
 
-/* SECTION */
 .section-header {
   display: flex;
   align-items: center;
@@ -392,7 +388,6 @@ nav a.active {
   margin-bottom: 40px;
 }
 
-/* EMPTY STATE */
 .empty-state {
   border: 1px dashed var(--border);
   border-radius: 10px;
@@ -417,7 +412,6 @@ nav a.active {
   line-height: 1.5;
 }
 
-/* GAME GRID */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -561,7 +555,6 @@ nav a.active {
   height: 100%;
 }
 
-/* MODAL */
 .modal-overlay {
   display: none;
   position: fixed;
