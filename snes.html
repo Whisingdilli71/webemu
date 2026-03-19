@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<link rel="stylesheet" href="style - global.css">
+<link rel="stylesheet" href="index-css.css">
+<link rel="stylesheet" href="color.css">
 <script src="./scripts/global.js"></script>
 <title>Super Famicom Emulator</title>
 </head>
@@ -11,15 +12,12 @@
 
 <nav>
   <div class="nav-brand">WebEmu</div>
-  <a href="index.html">Home</a>
-  <a href="gamewatch.html">Game &amp; Watch</a>
-  <a href="gameboy.html">GB / GBA / GBC</a>
-  <a href="gamegear.html">Game Gear</a>
-  <a href="genesis.html">Genesis / Megadrive</a>
-  <a href="nes.html">NES / Famicom</a>
-  <a href="" class="active">Super NES / Super Famicom</a>
+    <a href="index.html">Home</a>
+    <a href="raw.html" class="active">Consoles - Super Famicom </a>
+    <a href="collection.html">Collection</a>
+    <a href="faq.html">FAQ</a>
   <div class="nav-right">
-    <button class="dark-toggle" id="darkToggle">D</button>
+    <button class="dark-toggle" id="themeToggle">T</button>
   </div>
 </nav>
 
@@ -130,6 +128,7 @@
 
 <script src="https://unpkg.com/nostalgist"></script>
 <script src="./scripts/snes-script.js"></script>
+<script src="./scripts/scrollbar.js"></script>
 <script>
 (function () {
   const OrigAC = window.AudioContext || window.webkitAudioContext;

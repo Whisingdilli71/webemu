@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playstation Portable</title>
+  <script src="./scripts/global.js"></script>
+  <link rel="stylesheet" href="index-css.css">
+  <link rel="stylesheet" href="color.css">
+</head>
+<body>
+
+  <nav id="mainNav">
+    <div class="nav-brand">WebEmu</div>
+    <a href="index.html">Home</a>
+    <a href="raw.html" class="active">Consoles - PSP </a>
+    <a href="collection.html">Collection</a>
+    <a href="faq.html">FAQ</a>
+    <div class="nav-right">
+    <button class="dark-toggle" id="themeToggle">T</button>
+    </div>
+  </nav>
+
+  <div class="wrap" id="launcherWrap">
+    <div class="card">
+
+      <div class="left">
+        <div class="brand">
+          <div class="logo">.iso</div>
+          <div class="brand-title">
+            <span class="title">PlayStation Portable</span>
+            <span class="sub">Whising's EmulatorJS Build - PSP</span>
+          </div>
+        </div>
+
+        <div class="cover-wrap" id="coverWrap">
+          <img class="cover-img" id="coverImg" src="" alt="" />
+          <div class="cover-title" id="coverTitle"></div>
+          <div class="cover-badge">PlayStation Portable</div>
+        </div>
+
+        <div class="kbd" id="kbdGrid">
+          <div class="key"><span>D-Pad</span><span class="char highlight">↑↓←→</span></div>
+          <div class="key"><span>Cross</span><span class="char highlight">Z</span></div>
+          <div class="key"><span>Circle</span><span class="char highlight">X</span></div>
+          <div class="key"><span>Square</span><span class="char highlight">A</span></div>
+          <div class="key"><span>Triangle</span><span class="char highlight">S</span></div>
+          <div class="key"><span>L</span><span class="char highlight">Q</span></div>
+          <div class="key"><span>R</span><span class="char highlight">W</span></div>
+          <div class="key"><span>Start</span><span class="char highlight">Enter</span></div>
+          <div class="key"><span>Select</span><span class="char highlight">Shift</span></div>
+        </div>
+      </div>
+
+      <aside>
+        <div>
+          <span class="field">ROM File</span>
+          <div class="file-drop" id="dropZone">
+            <input type="file" id="romFile" accept=".iso,.cso,.pbp,.elf" />
+            <div class="file-drop-inner">
+              <span>Drop or click to browse</span>
+              <span>.iso</span>
+            </div>
+            <div class="file-name" id="fileName"></div>
+          </div>
+        </div>
+
+        <div>
+          <span class="field">ROM URL</span>
+          <input type="text" id="romUrl" placeholder="https://example.com/game.iso" />
+        </div>
+
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill"></div>
+        </div>
+
+        <div id="status-msg"></div>
+
+        <button class="btn primary" id="launchBtn">Launch</button>
+      </aside>
+
+    </div>
+  </div>
+
+  <div id="game-topbar">
+    <div class="topbar-title">
+      <div class="topbar-dot"></div>
+      <span id="gameTitle">PSP</span>
+    </div>
+    <div class="topbar-btns">
+      <button class="close-btn" id="closeBtn" title="Close">✕</button>
+    </div>
+  </div>
+
+  <div id="game-screen">
+    <div id="game"></div>
+  </div>
+
+  <script src="./scripts/psp-script.js"></script>
+
+</body>
+</html>

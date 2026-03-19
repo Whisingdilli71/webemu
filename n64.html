@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Nintendo 64 Emulator </title>
+  <script src="./scripts/global.js"></script>
+  <link rel="stylesheet" href="index-css.css">
+  <link rel="stylesheet" href="color.css">
+</head>
+<body>
+
+  <nav id="mainNav">
+    <div class="nav-brand">WebEmu</div>
+    <a href="index.html">Home</a>
+    <a href="raw.html" class="active">Consoles - Nintendo 64 </a>
+    <a href="collection.html">Collection</a>
+    <a href="faq.html">FAQ</a>
+    <div class="nav-right">
+    <button class="dark-toggle" id="themeToggle">T</button>
+    </div>
+  </nav>
+
+  <div class="wrap" id="launcherWrap">
+    <div class="card">
+
+      <div class="left">
+        <div class="brand">
+          <div class="logo">.z64</div>
+          <div class="brand-title">
+            <span class="title">Nintendo 64</span>
+            <span class="sub">Whising's EmulatorJS Build - N64</span>
+          </div>
+        </div>
+
+        <div class="cover-wrap" id="coverWrap">
+          <img class="cover-img" id="coverImg" src="" alt="" />
+          <div class="cover-title" id="coverTitle"></div>
+          <div class="cover-badge">Nintendo 64</div>
+        </div>
+
+        <div class="kbd" id="kbdGrid">
+          <div class="key"><span>D-Pad</span><span class="char highlight">↑↓←→</span></div>
+          <div class="key"><span>A</span><span class="char highlight">Z</span></div>
+          <div class="key"><span>B</span><span class="char highlight">X</span></div>
+          <div class="key"><span>Z</span><span class="char highlight">Shift</span></div>
+          <div class="key"><span>L</span><span class="char highlight">Q</span></div>
+          <div class="key"><span>R</span><span class="char highlight">W</span></div>
+          <div class="key"><span>C-Up</span><span class="char highlight">I</span></div>
+          <div class="key"><span>C-Down</span><span class="char highlight">K</span></div>
+          <div class="key"><span>C-Left</span><span class="char highlight">J</span></div>
+          <div class="key"><span>C-Right</span><span class="char highlight">L</span></div>
+          <div class="key"><span>Start</span><span class="char highlight">Enter</span></div>
+        </div>
+      </div>
+
+      <aside>
+        <div>
+          <span class="field">ROM File</span>
+          <div class="file-drop" id="dropZone">
+            <input type="file" id="romFile" accept=".n64,.z64,.v64,.rom" />
+            <div class="file-drop-inner">
+              <span>Drop or click to browse</span>
+              <span>.z64</span>
+            </div>
+            <div class="file-name" id="fileName"></div>
+          </div>
+        </div>
+
+        <div>
+          <span class="field">ROM URL</span>
+          <input type="text" id="romUrl" placeholder="https://example.com/game.z64" />
+        </div>
+
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill"></div>
+        </div>
+
+        <div id="status-msg"></div>
+
+        <button class="btn primary" id="launchBtn">Launch</button>
+      </aside>
+
+    </div>
+  </div>
+
+  <div id="game-topbar">
+    <div class="topbar-title">
+      <div class="topbar-dot"></div>
+      <span id="gameTitle">Nintendo 64</span>
+    </div>
+    <div class="topbar-btns">
+      <button class="close-btn" id="closeBtn" title="Close">✕</button>
+    </div>
+  </div>
+
+  <div id="game-screen">
+    <div id="game"></div>
+  </div>
+
+  <script src="./scripts/n64-script.js"></script>
+
+</body>
+</html>

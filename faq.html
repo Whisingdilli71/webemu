@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebEmu — FAQ</title>
+  <script src="./scripts/global.js"></script>
+  <link rel="stylesheet" href="color.css">
+  <link rel="stylesheet" href="index-css.css">
+  <style>
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">WebEmu</div>
+    <a href="index.html">Home</a>
+    <a href="raw.html">Consoles</a>
+    <a href="collection.html">Collection</a>
+    <a href="faq.html" class="active">FAQ</a>
+    <div class="nav-right">
+      <button class="dark-toggle" id="themeToggle">T</button>
+    </div>
+  </nav>
+
+  <div class="faq-wrap">
+
+    <div class="faq-header">
+      <div class="faq-label">faq@webemu</div>
+      <h1>Frequently asked questions</h1>
+      <p>Everything you need to know about playing games on WebEmu. No technical knowledge required.</p>
+    </div>
+
+    <div class="faq-section">
+      <div class="faq-section-title">Getting started</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What is WebEmu?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            WebEmu is a free browser-based emulator. It lets you play classic video games from consoles like the NES, Game Boy, PlayStation, and more, directly in your browser, with nothing to download or install.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Do I need to create an account?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            No. You can go to any console page, drop a ROM file, and play immediately without signing in. An account is only needed if you want to use the <strong>Collection</strong> feature, which saves your game library so you can find your games quickly next time.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What is a ROM file?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            A ROM is a digital copy of a game cartridge or disc. Each console uses a specific file type, for example, NES games are <strong>.nes</strong> files, Game Boy Advance games are <strong>.gba</strong> files, and PSP games are <strong>.iso</strong> files. You need to provide your own ROM files to play.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I start playing a game?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Go to <a href="raw.html">Consoles</a>, pick the system your game is for, then either drag your ROM file onto the page or paste a direct URL to the file. Hit <strong>Launch</strong> and the game will start loading.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="faq-section-title">Playing games</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I control the game?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Keyboard controls are shown on each console page before you launch a game. If you have a controller plugged in, it will be detected automatically, just plug it in before launching. Most standard USB and Bluetooth controllers work out of the box, XINPUT is recommended for compatibility, morever if your controller doesn't work, just replug it and it will get detected.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I save my game progress?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Move your mouse to the bottom of the screen while playing to reveal the controls bar. Click <strong>Save State</strong> to save your exact position. You can reload it later with <strong>Load State</strong>. Note that save states are downloaded as files, so keep them somewhere safe if you want to use them again, this is not the case for more higher end consoles, however it is just as intuitive.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What is Rewind and Fast Forward?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <strong>Rewind</strong> lets you go back a few seconds in the game, useful if you made a mistake. Hold <strong>R</strong> on your keyboard to rewind. <strong>Fast Forward</strong> speeds the game up, hold <strong>Space</strong> to use it. These features are available on the classic systems (NES, SNES, Game Boy, Genesis, Game Gear, Game &amp; Watch), and for modern systems, keybinds are shown through emulatorjs.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I go fullscreen?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Click the fullscreen button in the top right corner of the screen while a game is running, or press <strong>F11</strong>. Press <strong>Escape</strong> to exit the game entirely and return to the launcher.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I adjust the volume?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Move your mouse to the bottom of the screen while playing to reveal the controls bar. The volume slider is on the right side, drag it to adjust, however for older system, where nostalgist.js is used, hover in the bottom and you can see the volume rocker.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="faq-section-title">Collection</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Where are my ROMs stored?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Your ROM files are stored <strong>locally in your browser</strong>, on your device only. They are never uploaded to any server. Your game list (names, systems, cover art) is saved to your account so it appears when you log in, but the actual game files stay on your device.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Why does it say "No ROM" on one of my games?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            This happens when you sign in on a new device or a different browser. Your game list is restored from your account, but the ROM files only exist on the device you originally used. Click <strong>Add ROM file</strong> on that game card and re-select the file to play it on this device.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I import a whole folder of games at once?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Yes. On the Collection page, click <strong>Import Folder</strong> and select a folder from your computer. WebEmu will scan it for ROM files, automatically detect the console for most file types, and show you a list to review before importing. You can skip any games you don't want to add.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I change my profile picture?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Click your profile picture in the top right of the Collection page. You can upload any image from your device. It will be saved to your account and appear on all devices you sign into. This is available for email accounts — Google accounts use your Google profile photo by default.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="faq-section-title">Compatibility</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Which consoles does WebEmu support?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            WebEmu supports 10 systems: <strong>NES, Super NES, Game Boy / GBC / GBA, Game &amp; Watch, Genesis / Mega Drive, Game Gear, PlayStation, PSP, Nintendo 64,</strong> and <strong>Nintendo DS</strong>.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Do all games work perfectly?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Classic systems (NES, SNES, Game Boy, Genesis, Game Gear, Game &amp; Watch) run at full speed with near-perfect compatibility. Nintendo DS and PlayStation work well for most games. Nintendo 64 and PSP are more demanding and may run slower on older or lower-powered devices, but for most modern systems, you shouldn't have any issues.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Which browser should I use?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Chrome, Edge, or Brave give the best performance, especially for heavier systems like PSP and N64. Firefox works too but may be slightly slower on 3D games. Safari is not recommended for PSP or N64.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Does it work on mobile?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            The site loads on mobile but it is designed primarily for desktop use with a keyboard and controller. Classic systems may work on mobile if you have a Bluetooth controller. Touch controls are not currently supported.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="faq-section-title">Legal</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Is WebEmu legal to use?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            The emulator software itself is legal. ROM files are a different matter, you are responsible for ensuring you have the legal right to use any ROM you load. Many regions allow personal backups of games you own. WebEmu does not host or distribute any ROM files.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Does WebEmu collect any of my data?
+            <span class="faq-chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            If you create an account, your email address, display name, and game list are stored in Firebase. Your ROM files never leave your device. WebEmu does not run ads, does not sell data, and does not track your activity.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer  = btn.nextElementSibling;
+        const isOpen  = btn.classList.contains('open');
+
+        document.querySelectorAll('.faq-question.open').forEach(b => {
+          b.classList.remove('open');
+          b.nextElementSibling.classList.remove('open');
+        });
+
+        if (!isOpen) {
+          btn.classList.add('open');
+          answer.classList.add('open');
+        }
+      });
+    });
+  </script>
+
+  <script src="./scripts/theme.js"></script>
+
+</body>
+</html>

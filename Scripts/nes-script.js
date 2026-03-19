@@ -19,6 +19,7 @@ const coverWrap       = document.getElementById('coverWrap');
 const coverImg        = document.getElementById('coverImg');
 const coverTitle      = document.getElementById('coverTitle');
 const kbdGrid         = document.getElementById('kbdGrid');
+const launchName = sessionStorage.getItem('webemu-launch-name');
 
 let instance  = null;
 let idleTimer = null;
@@ -30,6 +31,32 @@ const COVER_REPOS = {
   nes: 'Nintendo_-_Nintendo_Entertainment_System',
   fds: 'Nintendo_-_Famicom_Disk_System',
 };
+
+if (launchName) {
+  sessionStorage.removeItem('webemu-launch-name');
+
+  const openLaunchIDB = () => new Promise((resolve, reject) => {
+    const req = indexedDB.open('webemu-roms', 1);
+    req.onupgradeneeded = e => e.target.result.createObjectStore('roms');
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror   = e => reject(e.target.error);
+  });
+
+  (async () => {
+    const idb   = await openLaunchIDB();
+    const tx    = idb.transaction('roms', 'readwrite');
+    const store = tx.objectStore('roms');
+    const req   = store.get('pending-launch');
+    req.onsuccess = () => {
+      const file = req.result;
+      store.delete('pending-launch');
+      if (file) {
+        const url = URL.createObjectURL(file);
+        launchROM(url, launchName);
+      }
+    };
+  })();
+}
 
 function extOf(name) {
   const m = name.match(/\.(\w+)$/);
@@ -241,3 +268,6 @@ launchBtn.addEventListener('click', async () => {
     setStatus('Select a ROM file or enter a URL.');
   }
 });
+
+romUrlInput.value = 'https://raw.githubusercontent.com/retrobrews/nes-games/master/flappybird.nes';
+tryLoadCover('flappybird.nes');

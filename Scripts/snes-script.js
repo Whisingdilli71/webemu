@@ -19,6 +19,7 @@ const coverWrap       = document.getElementById('coverWrap');
 const coverImg        = document.getElementById('coverImg');
 const coverTitle      = document.getElementById('coverTitle');
 const kbdGrid         = document.getElementById('kbdGrid');
+const launchName = sessionStorage.getItem('webemu-launch-name');
 
 let instance  = null;
 let idleTimer = null;
@@ -26,11 +27,37 @@ let idleTimer = null;
 const mainNav = document.querySelector('nav');
 const fsBtn   = document.getElementById('fsBtn');
 
+if (launchName) {
+  sessionStorage.removeItem('webemu-launch-name');
+
+  const openLaunchIDB = () => new Promise((resolve, reject) => {
+    const req = indexedDB.open('webemu-roms', 1);
+    req.onupgradeneeded = e => e.target.result.createObjectStore('roms');
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror   = e => reject(e.target.error);
+  });
+
 const COVER_REPOS = {
   sfc: 'Nintendo_-_Super_Nintendo_Entertainment_System',
   smc: 'Nintendo_-_Super_Nintendo_Entertainment_System',
   snes: 'Nintendo_-_Super_Nintendo_Entertainment_System',
 };
+
+  (async () => {
+    const idb   = await openLaunchIDB();
+    const tx    = idb.transaction('roms', 'readwrite');
+    const store = tx.objectStore('roms');
+    const req   = store.get('pending-launch');
+    req.onsuccess = () => {
+      const file = req.result;
+      store.delete('pending-launch');
+      if (file) {
+        const url = URL.createObjectURL(file);
+        launchROM(url, launchName);
+      }
+    };
+  })();
+}
 
 function extOf(name) {
   const m = name.match(/\.(\w+)$/);
@@ -242,3 +269,6 @@ launchBtn.addEventListener('click', async () => {
     setStatus('Select a ROM file or enter a URL.');
   }
 });
+
+romUrlInput.value = 'https://raw.githubusercontent.com/retrobrews/snes-games/master/furryrpg.sfc';
+tryLoadCover('furryrpg.sfc')

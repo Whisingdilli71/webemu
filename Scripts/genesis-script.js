@@ -19,6 +19,7 @@ const coverWrap       = document.getElementById('coverWrap');
 const coverImg        = document.getElementById('coverImg');
 const coverTitle      = document.getElementById('coverTitle');
 const kbdGrid         = document.getElementById('kbdGrid');
+const launchName = sessionStorage.getItem('webemu-launch-name');
 
 let instance  = null;
 let idleTimer = null;
@@ -26,7 +27,6 @@ let idleTimer = null;
 const mainNav = document.querySelector('nav');
 const fsBtn   = document.getElementById('fsBtn');
 
-// COVER ART
 const COVER_REPOS = {
   md:  'Sega_-_Mega_Drive_-_Genesis',
   bin: 'Sega_-_Mega_Drive_-_Genesis',
@@ -37,6 +37,32 @@ const COVER_REPOS = {
 function extOf(name) {
   const m = name.match(/\.(\w+)$/);
   return m ? m[1].toLowerCase() : 'md';
+}
+
+if (launchName) {
+  sessionStorage.removeItem('webemu-launch-name');
+
+  const openLaunchIDB = () => new Promise((resolve, reject) => {
+    const req = indexedDB.open('webemu-roms', 1);
+    req.onupgradeneeded = e => e.target.result.createObjectStore('roms');
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror   = e => reject(e.target.error);
+  });
+
+  (async () => {
+    const idb   = await openLaunchIDB();
+    const tx    = idb.transaction('roms', 'readwrite');
+    const store = tx.objectStore('roms');
+    const req   = store.get('pending-launch');
+    req.onsuccess = () => {
+      const file = req.result;
+      store.delete('pending-launch');
+      if (file) {
+        const url = URL.createObjectURL(file);
+        launchROM(url, launchName);
+      }
+    };
+  })();
 }
 
 function coverUrl(repo, gameName) {
@@ -85,7 +111,6 @@ async function tryLoadCover(filename) {
   }
 }
 
-// STATUS
 function setStatus(msg) { statusEl.textContent = msg; }
 function setLoading(on) {
   launchBtn.disabled = on;
@@ -93,7 +118,6 @@ function setLoading(on) {
   launchBtn.textContent = on ? 'Loading…' : 'Launch';
 }
 
-// VOLUME
 volSlider.addEventListener('input', () => {
   const v = volSlider.value;
   volLabel.textContent = v + '%';
@@ -103,7 +127,6 @@ function applyVolume() {
   if (window._masterGain) window._masterGain.gain.value = volSlider.value / 100;
 }
 
-// FILE INPUT
 romFileInput.addEventListener('change', () => {
   const f = romFileInput.files[0];
   fileNameEl.textContent = f ? f.name : '';
@@ -112,7 +135,6 @@ romFileInput.addEventListener('change', () => {
   else hideCover();
 });
 
-// URL INPUT
 romUrlInput.addEventListener('change', () => {
   const url = romUrlInput.value.trim();
   if (url) {
@@ -123,7 +145,6 @@ romUrlInput.addEventListener('change', () => {
   }
 });
 
-// DRAG & DROP
 dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
 dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
 dropZone.addEventListener('drop', e => {
@@ -138,7 +159,6 @@ dropZone.addEventListener('drop', e => {
   }
 });
 
-// BOTTOM PROXIMITY OVERLAY
 const TRIGGER_ZONE = 120;
 document.addEventListener('mousemove', e => {
   if (!instance) return;
@@ -151,7 +171,6 @@ document.addEventListener('mousemove', e => {
 });
 controlsOverlay.addEventListener('mouseenter', () => controlsOverlay.classList.remove('hidden'));
 
-// FULLSCREEN
 fsBtn.addEventListener('click', () => {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen().catch(() => {});
@@ -167,7 +186,6 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// SAVE STATE
 saveStateBtn.addEventListener('click', async () => {
   if (!instance) return;
   try {
@@ -183,7 +201,6 @@ saveStateBtn.addEventListener('click', async () => {
   }
 });
 
-// LOAD STATE
 stateFileInput.addEventListener('change', async () => {
   const f = stateFileInput.files[0];
   if (!f || !instance) return;
@@ -195,7 +212,6 @@ stateFileInput.addEventListener('change', async () => {
   stateFileInput.value = '';
 });
 
-// CLOSE GAME
 async function closeGame() {
   if (instance) {
     try { await instance.exit(); } catch(e) {}
@@ -265,3 +281,6 @@ launchBtn.addEventListener('click', async () => {
     setStatus('Select a ROM file or enter a URL.');
   }
 });
+
+romUrlInput.value = 'https://raw.githubusercontent.com/retrobrews/md-games/master/30yearsofnintendont.bin';
+tryLoadCover('30yearsofnintendont.bin');
