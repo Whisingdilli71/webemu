@@ -22,7 +22,7 @@ Browser-based retro emulator. Drop a ROM and play. No installs, no accounts, no 
 - Dark mode and 4 additional themes
 - Drag and drop ROM loading or URL input
 - Controller support out of the box
-- Vanilla JS and CSS — no frameworks
+- Vanilla JS and CSS, no frameworks
 
 ## Systems
 
@@ -41,7 +41,7 @@ Browser-based retro emulator. Drop a ROM and play. No installs, no accounts, no 
 
 ## How it works
 
-Nostalgist.js wraps libretro cores compiled to WebAssembly via Emscripten for the classic systems. EmulatorJS handles the heavier ones — PlayStation, PSP, N64, and DS — loaded dynamically at launch. Cover art is fetched from the libretro-thumbnails CDN on jsDelivr. ROMs in the collection are stored in IndexedDB locally on your device and never leave it. Game metadata syncs to Firebase Firestore per account.
+Nostalgist.js wraps libretro cores compiled to WebAssembly via Emscripten for the classic systems. EmulatorJS handles the heavier ones, PlayStation, PSP, N64, and DS. Cover art is fetched from the libretro-thumbnails CDN on jsDelivr. ROMs in the collection are stored in IndexedDB locally on your device and never leave it. Game metadata syncs to Firebase Firestore per account.
 
 ## Getting Started
 ```bash
