@@ -16,7 +16,7 @@ Browser-based retro emulator. Drop a ROM and play. No installs, no accounts, no 
 
 - 10 systems across two emulation backends
 - Personal game collection with Google and email sign-in
-- Folder import — scan an entire ROM folder at once
+- Folder import, you can scan an entire ROM folder at once
 - Automatic cover art via libretro-thumbnails with manual rescan and custom image upload
 - Save states and load states
 - Rewind and fast forward
