@@ -1,5 +1,7 @@
 # WebEmu
 
+## PLAY TESTING ROM IS PROVIDED IN GBA AND NES CONSOLES, PLEASE CLICK THE URL BOX AND A URL WILL SPAWN 
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Hack Club](https://img.shields.io/badge/Hack_Club-%23EC3750.svg?style=flat&logo=Hack-Club&logoColor=white)](https://hackclub.com/)
 [![Netlify](https://img.shields.io/badge/deployed%20on-Netlify-00C7B7)](https://netlify.com)
